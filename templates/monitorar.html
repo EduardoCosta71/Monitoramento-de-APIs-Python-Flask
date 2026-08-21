@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/monitorar.html">
+    <title>Monitoramento APIs</title>
+
+</head>
+<body>
+    <h1>Monitoramento APIs</h1>
+    <p>Monitor APIs</p>
+
+    {% for resultado in resultados %}
+
+    <div>
+        <h2> {{ resultado["url"] }}</h2>
+        <p>Status HTTP: {{ resultado["status_code"] }}</p>
+        <p>Situação: {{ resultado["status"] }}</p>
+
+        {% if resultado["tempo_resposta"] is not none %}
+
+        <p>
+            Tempo:
+            {{ "%.2f" | format(resultado["tempo_resposta"]) }} ms
+        </p>
+
+        {% endif %}
+
+    </div>
+
+    <hr>
+
+    {% endfor %}
+
+</body>
+</html>
