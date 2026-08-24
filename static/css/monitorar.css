@@ -1,0 +1,371 @@
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+
+/* Seleciona todos os elementos da página */
+* {
+
+    /* Remove a margem padrão dos elementos */
+    margin: 0;
+
+    /* Remove o preenchimento padrão dos elementos */
+    padding: 0;
+
+    /* Faz o tamanho do elemento incluir padding e borda */
+    box-sizing: border-box;
+}
+
+
+/* Configura o corpo inteiro da página */
+body {
+
+    /* Define a fonte principal da página */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Define a cor de fundo */
+    background: #0b1120;
+
+    /* Define a cor padrão dos textos */
+    color: #e5e7eb;
+
+    /* Faz o body ocupar pelo menos toda a altura da tela */
+    min-height: 100vh;
+
+    /* Cria espaço entre o conteúdo e as bordas da tela */
+    padding: 50px;
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
+
+
+/* Seleciona o h1 */
+h1 {
+
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Define o tamanho da fonte */
+    font-size: 36px;
+
+    /* Cria espaço abaixo do título */
+    margin-bottom: 10px;
+
+    /* Define a cor do título */
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+
+/* Seleciona o parágrafo que está diretamente dentro do body */
+body > p {
+
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Define uma cor mais suave para o subtítulo */
+    color: #94a3b8;
+
+    /* Cria espaço abaixo do subtítulo */
+    margin-bottom: 45px;
+
+    /* Define o tamanho da fonte */
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   CARD DE CADA API
+   ========================================================= */
+
+
+/* Seleciona cada elemento que possui a classe "container" */
+.container {
+
+    /* Define a largura máxima do card */
+    max-width: 900px;
+
+    /* Centraliza o card horizontalmente */
+    margin: 0 auto 20px;
+
+    /* Cria espaço interno dentro do card */
+    padding: 25px;
+
+    /* Define a cor de fundo do card */
+    background: #111827;
+
+    /* Cria uma borda ao redor do card */
+    border: 1px solid #1e293b;
+
+    /* Arredonda os cantos do card */
+    border-radius: 16px;
+
+    /* Cria uma sombra ao redor do card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    /* Faz as alterações visuais acontecerem suavemente */
+    transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   EFEITO AO PASSAR O MOUSE
+   ========================================================= */
+
+
+/* Aplica essas regras quando o mouse estiver sobre o card */
+.container:hover {
+
+    /* Move o card levemente para cima */
+    transform: translateY(-3px);
+
+    /* Muda a cor da borda */
+    border-color: #3b82f6;
+
+    /* Aumenta a sombra do card */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   URL DA API
+   ========================================================= */
+
+
+/* Seleciona o h2 que está dentro do card */
+.container h2 {
+
+    /* Define o tamanho do texto */
+    font-size: 18px;
+
+    /* Define a cor azul da URL */
+    color: #60a5fa;
+
+    /* Cria espaço abaixo da URL */
+    margin-bottom: 20px;
+
+    /* Permite quebrar URLs muito grandes */
+    word-break: break-all;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DA API
+   ========================================================= */
+
+
+/* Seleciona os parágrafos dentro do card */
+.container p {
+
+    /* Cria espaço acima e abaixo de cada informação */
+    margin: 10px 0;
+
+    /* Define a cor do texto */
+    color: #cbd5e1;
+
+    /* Define o tamanho da fonte */
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+
+/* Configuração geral do status */
+.status {
+
+    /* Coloca a bolinha e o texto na mesma linha */
+    display: flex;
+
+    /* Alinha verticalmente */
+    align-items: center;
+
+    /* Espaço entre a bolinha e o texto */
+    gap: 8px;
+
+    /* Deixa o texto mais destacado */
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   BOLINHA
+   ========================================================= */
+
+
+/* Elemento que representa a bolinha */
+.status-dot {
+
+    /* Largura */
+    width: 10px;
+
+    /* Altura */
+    height: 10px;
+
+    /* Transforma em círculo */
+    border-radius: 50%;
+
+    /* Permite definir largura e altura */
+    display: inline-block;
+
+    /* Impede que a bolinha seja achatada */
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ONLINE
+   ========================================================= */
+
+
+/* Texto do status online */
+.status.online {
+
+    /* Verde */
+    color: #22c55e;
+}
+
+
+/* Bolinha online */
+.status.online .status-dot {
+
+    /* Fundo verde */
+    background-color: #22c55e;
+
+    /* Brilho verde */
+    box-shadow: 0 0 12px #22c55e;
+}
+
+
+/* =========================================================
+   ERRO DO CLIENTE
+   ========================================================= */
+
+
+/* Texto do erro de cliente */
+.status.erro_cliente {
+
+    /* Amarelo */
+    color: #f59e0b;
+}
+
+
+/* Bolinha do erro de cliente */
+.status.erro_cliente .status-dot {
+
+    /* Fundo amarelo */
+    background-color: #f59e0b;
+
+    /* Brilho amarelo */
+    box-shadow: 0 0 12px #f59e0b;
+}
+
+
+/* =========================================================
+   ERRO DO SERVIDOR
+   ========================================================= */
+
+
+/* Texto do erro de servidor */
+.status.erro_servidor {
+
+    /* Vermelho */
+    color: #ef4444;
+}
+
+
+/* Bolinha do erro de servidor */
+.status.erro_servidor .status-dot {
+
+    /* Fundo vermelho */
+    background-color: #ef4444;
+
+    /* Brilho vermelho */
+    box-shadow: 0 0 12px #ef4444;
+}
+
+
+/* =========================================================
+   OFFLINE
+   ========================================================= */
+
+
+/* Texto offline */
+.status.offline {
+
+    /* Vermelho */
+    color: #ef4444;
+}
+
+
+/* Bolinha offline */
+.status.offline .status-dot {
+
+    /* Fundo vermelho */
+    background-color: #ef4444;
+
+    /* Brilho vermelho */
+    box-shadow: 0 0 12px #ef4444;
+}
+
+/* =========================================================
+   LINHA <HR>
+   ========================================================= */
+
+
+/* Seleciona as linhas <hr> que estão entre os cards */
+hr {
+
+    /* Esconde a linha */
+    display: none;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+
+/* Essas regras serão aplicadas em telas menores */
+@media (max-width: 768px) {
+
+    /* Reduz o espaço externo do body */
+    body {
+
+        /* Diminui o espaçamento para telas pequenas */
+        padding: 25px 15px;
+    }
+
+
+    /* Diminui o tamanho do título */
+    h1 {
+
+        /* Tamanho menor para celular */
+        font-size: 28px;
+    }
+
+
+    /* Ajusta o card para telas menores */
+    .container {
+
+        /* Diminui o espaço interno */
+        padding: 20px;
+    }
+
+
+    /* Diminui o tamanho da URL */
+    .container h2 {
+
+        /* Fonte menor */
+        font-size: 16px;
+    }
+}

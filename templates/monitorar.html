@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/monitorar.html">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/monitorar.css') }}">
     <title>Monitoramento APIs</title>
 
 </head>
@@ -13,10 +13,13 @@
 
     {% for resultado in resultados %}
 
-    <div>
+    <div class="container">
         <h2> {{ resultado["url"] }}</h2>
-        <p>Status HTTP: {{ resultado["status_code"] }}</p>
-        <p>Situação: {{ resultado["status"] }}</p>
+        <p>Status HTTP: {{ resultado["status_code"] | lower }}</p>
+        <p class="status{{ resultado['status'] }}">
+            <span class="status-dot"></span>
+            Situação: {{ resultado["status"] }}
+        </p>
 
         {% if resultado["tempo_resposta"] is not none %}
 
