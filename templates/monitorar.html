@@ -1,40 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/monitorar.css') }}">
-    <title>Monitoramento APIs</title>
 
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/monitorar.css') }}">
+
+    <title>Monitoramento de APIs</title>
 </head>
-<body>
-    <h1>Monitoramento APIs</h1>
-    <p>Monitor APIs</p>
 
-    {% for resultado in resultados %}
+<body>
 
     <div class="container">
-        <h2> {{ resultado["url"] }}</h2>
-        <p>Status HTTP: {{ resultado["status_code"] | lower }}</p>
-        <p class="status{{ resultado['status'] }}">
-            <span class="status-dot"></span>
-            Situação: {{ resultado["status"] }}
-        </p>
 
-        {% if resultado["tempo_resposta"] is not none %}
+        <h1>Monitoramento de APIs</h1>
 
-        <p>
-            Tempo:
-            {{ "%.2f" | format(resultado["tempo_resposta"]) }} ms
-        </p>
+        <p>Adicione as APIs que deseja monitorar.</p>
+
+        <!-- Formulário para adicionar uma API -->
+        <form action="{{ url_for('adicionar_api') }}" method="POST">
+
+            <label for="url">URL da API</label>
+
+            <input
+                type="url"
+                id="url"
+                name="url"
+                placeholder="https://api.exemplo.com"
+                required
+            >
+
+            <button type="submit">
+                Adicionar API
+            </button>
+
+        </form>
+
+
+        <!-- Lista de APIs adicionadas -->
+        {% if apis and not resultados %}
+
+            <h2>APIs adicionadas</h2>
+
+            <ul>
+
+                {% for api in apis %}
+
+                    <li>
+
+                        {{ api }}
+
+                        <form
+                            action="{{ url_for('excluir_api', url=api) }}"
+                            method="POST"
+                            style="display: inline;"
+                        >
+
+                            <button type="submit">
+                                Excluir
+                            </button>
+
+                        </form>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% endif %}
+
+
+        <!-- Botão para monitorar todas as APIs -->
+        {% if apis %}
+
+            <form action="{{ url_for('monitorar_api') }}" method="POST">
+
+                <button type="submit">
+                    Monitorar todas
+                </button>
+
+            </form>
+
+        {% endif %}
+
+
+        <!-- Resultados do monitoramento -->
+        {% if resultados %}
+
+            <h2>Resultados</h2>
+
+            {% for resultado in resultados %}
+
+                <div class="card">
+
+                    <h3>{{ resultado["url"] }}</h3>
+
+                    <p>
+                        Status HTTP:
+                        {{ resultado["status_code"] }}
+                    </p>
+
+                    <p class="status {{ resultado['status']|lower }}">
+
+                        <span class="status-dot"></span>
+
+                        Situação:
+                        {{ resultado["status"] }}
+
+                    </p>
+
+                    {% if resultado["tempo_resposta"] is not none %}
+
+                        <p>
+                            Tempo de resposta:
+                            {{ "%.2f" | format(resultado["tempo_resposta"]) }} ms
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
 
         {% endif %}
 
     </div>
 
-    <hr>
-
-    {% endfor %}
-
 </body>
+
 </html>
