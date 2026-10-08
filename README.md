@@ -105,7 +105,7 @@ Depois, acesse o endereço local exibido no terminal, normalmente `http://127.0.
 Estudante de Análise e Desenvolvimento de Sistemas, com foco em Desenvolvimento Backend.
 
 * GitHub: [EduardoCosta71](https://github.com/EduardoCosta71)
-* LinkedIn: adicione aqui o link do seu perfil.
+* LinkedIn: [Eduardo Costa Borges](https://www.linkedin.com/in/eduardocostaborges/?isSelfProfile=true)
 
 ---
 
